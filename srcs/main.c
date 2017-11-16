@@ -6,7 +6,7 @@
 /*   By: juhallyn <juhallyn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/03 04:32:29 by juhallyn          #+#    #+#             */
-/*   Updated: 2017/11/15 19:15:22 by juhallyn         ###   ########.fr       */
+/*   Updated: 2017/11/16 15:36:09 by juhallyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,9 @@ int		main(int argc, char **argv)
 	(void)argc;
 	(void)argv;
 	mlx = NULL;
+	if (argc != 2)
+		print_usage();
+	// parse_file(argv);
 	win = init_window(&mlx, HEIGHT, WIDTH);
 	bresenham_test(mlx, win);
 	return (0);
