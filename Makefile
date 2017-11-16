@@ -6,7 +6,7 @@
 #    By: juhallyn <juhallyn@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/07/03 18:24:18 by juhallyn          #+#    #+#              #
-#    Updated: 2017/11/16 15:35:35 by juhallyn         ###   ########.fr        #
+#    Updated: 2017/11/16 16:36:21 by juhallyn         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,7 @@ SRC 	=	\
 			draw.c			\
 			init.c			\
 			main.c			\
+			open_file.c		\
 			parse.c			\
 			tools.c			\
 
@@ -32,6 +33,7 @@ OBJS		=	$(SRC:.c=.o)
 
 LIB			=	libft/
 INC			=	Includes/
+LOGGER		=	logger/incs/
 OBJS_DIR	=	objs/
 SRCS_DIR	=	srcs/
 SRCS_LIST	=	$(addprefix $(SRCS_DIR), $(SRC))
@@ -51,7 +53,7 @@ norm:
 #_Compilation_#
 
 $(NAME):
-	@make -C $(LIB)
+#	@make -C $(LIB)
 	@gcc $(FLAG) -c $(SRCS_LIST) -I $(INC) -I $(LIB)
 	@mkdir -p $(OBJS_DIR)
 	@mv $(OBJS) $(OBJS_DIR)
@@ -69,4 +71,4 @@ fclean: clean
 	@make fclean -C $(LIB)
 	@rm -f $(NAME)
 
-re: fclean all
+re: all#fclean all

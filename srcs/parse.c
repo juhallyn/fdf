@@ -6,13 +6,17 @@
 /*   By: juhallyn <juhallyn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/15 19:18:06 by juhallyn          #+#    #+#             */
-/*   Updated: 2017/11/15 19:20:10 by juhallyn         ###   ########.fr       */
+/*   Updated: 2017/11/16 16:13:18 by juhallyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-char		**parse_file()
+void				parse_file(char *file)
 {
-	
+	// check_extension(file);
 }
+
+// static int		open_file(char *file)
+// {
+//
