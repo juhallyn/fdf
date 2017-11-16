@@ -6,7 +6,7 @@
 /*   By: juhallyn <juhallyn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/15 12:02:04 by juhallyn          #+#    #+#             */
-/*   Updated: 2017/11/16 16:37:01 by juhallyn         ###   ########.fr       */
+/*   Updated: 2017/11/16 17:35:46 by juhallyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,35 @@
 # define HEIGHT 900
 # define WIDTH 900
 
+
+/*
+**	--	struct --
+*/
+
+typedef struct		s_map
+{
+	int				x;
+	int				y;
+	int				altitude;
+	struct s_map	*next;
+}					t_map;
+
+/*
+**			--	functions --
+*/
+
 /*
 **	--	open_file.c --
 */
 
-
 int				open_file(char *file);
 
-// void			parse_file(char *file);
+/*
+**	--	parse_file.c --
+*/
+
+void			parse_file(char *file);
+
 /*
 **	--	init.c --
 */

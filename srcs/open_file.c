@@ -6,7 +6,7 @@
 /*   By: juhallyn <juhallyn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/16 16:12:42 by juhallyn          #+#    #+#             */
-/*   Updated: 2017/11/16 16:39:52 by juhallyn         ###   ########.fr       */
+/*   Updated: 2017/11/16 17:21:45 by juhallyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,8 @@ int				open_file(char *file)
 	fd = open(file, O_RDONLY);
 	if (fd < 0)
 	{
-		ft_putendl_fd("open error", 2);
+		ft_putendl_fd("Open error", 2);
 		exit (-1);
 	}
+	return (fd);
 }
