@@ -6,7 +6,7 @@
 #    By: juhallyn <juhallyn@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/07/03 18:24:18 by juhallyn          #+#    #+#              #
-#    Updated: 2017/11/16 16:36:21 by juhallyn         ###   ########.fr        #
+#    Updated: 2017/11/20 18:37:56 by juhallyn         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,6 +23,7 @@ NAME	=	fdf
 SRC 	=	\
 			draw.c			\
 			init.c			\
+			list.c			\
 			main.c			\
 			open_file.c		\
 			parse.c			\

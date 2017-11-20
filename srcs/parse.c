@@ -6,44 +6,46 @@
 /*   By: juhallyn <juhallyn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/15 19:18:06 by juhallyn          #+#    #+#             */
-/*   Updated: 2017/11/16 18:12:15 by juhallyn         ###   ########.fr       */
+/*   Updated: 2017/11/20 20:10:20 by juhallyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-static void			init_struct(char *altitude, int x, int y)
-{
 
-}
-
-static void			parse_line(char *line, int y)
+static void			parse_line(t_map **map, char *line, int y)
 {
 	char	**split;
-	size_t	i;
-	size_t	j;
+	int		z;
+	size_t	x;
 
-	i = 0;
-	j = 0;
+	x = 0;
+	z = 0;
 	split = ft_strsplit(line, ' ');
-	while (split[i])
+	while (split[x])
 	{
-		init_struct()
+		z = ft_atoi(split[x]);
+		add_end(map, z, x, y);
+		x++;
 	}
 }
 
-void				parse_file(char *file)
+t_map			*parse_file(char *file)
 {
+	t_map	*map;
 	int		fd;
 	char	*line;
 	int		y;
 
-	fd = open_file(file);
+	map = NULL;
 	y = 0;
+	fd = open_file(file);
 	while (get_next_line(fd, &line) > 0)
 	{
-		parse_line(line, y);
+		parse_line(&map, line, y);
+		y++;
 	}
+	return (map);
 }
 
 // static int		open_file(char *file)
