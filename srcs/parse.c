@@ -6,14 +6,13 @@
 /*   By: juhallyn <juhallyn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/15 19:18:06 by juhallyn          #+#    #+#             */
-/*   Updated: 2017/11/20 20:10:20 by juhallyn         ###   ########.fr       */
+/*   Updated: 2017/11/23 18:01:54 by juhallyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-
-static void			parse_line(t_map **map, char *line, int y)
+static int			parse_line(t_map **map, char *line, int y)
 {
 	char	**split;
 	int		z;
@@ -28,26 +27,29 @@ static void			parse_line(t_map **map, char *line, int y)
 		add_end(map, z, x, y);
 		x++;
 	}
+	return (x);
 }
 
-t_map			*parse_file(char *file)
+t_map			*parse_file(char *file, int *x, int *y)
 {
 	t_map	*map;
 	int		fd;
 	char	*line;
-	int		y;
 
 	map = NULL;
-	y = 0;
+	*y = 0;
 	fd = open_file(file);
+	if (get_next_line(fd, &line) > 0)
+	{
+		*x = parse_line(&map, line, *y);
+		*y = *y + 1;
+	}
 	while (get_next_line(fd, &line) > 0)
 	{
-		parse_line(&map, line, y);
-		y++;
+		if (*x != parse_line(&map, line, *y))
+			ft_exit("map error : invalide number of x element");
+		*y = *y + 1;
 	}
+	close(fd);
 	return (map);
 }
-
-// static int		open_file(char *file)
-// {
-//

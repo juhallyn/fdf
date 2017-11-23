@@ -6,7 +6,7 @@
 /*   By: juhallyn <juhallyn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/20 17:55:42 by juhallyn          #+#    #+#             */
-/*   Updated: 2017/11/20 20:20:51 by juhallyn         ###   ########.fr       */
+/*   Updated: 2017/11/23 19:54:52 by juhallyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ static t_map		*create_node(int z, int x, int y)
 	node->x = x;
 	node->y = y;
 	node->z = z;
-	node->x_win = (INIT_X + (SUB_WIDTH / X_MAX) * node->x);
-	node->y_win = (INIT_Y + (SUB_HEIGHT / Y_MAX) * node->y - \
-		(SUB_HEIGHT / Y_MAX) * node->z);
+	// node->x_win = (INIT_X + (SUB_WIDTH / X_MAX) * node->x);
+	// node->y_win = (INIT_Y + (SUB_HEIGHT / Y_MAX) * node->y - \
+	// 	(SUB_HEIGHT / Y_MAX) * node->z);
 	node->next = NULL;
 	return (node);
 }

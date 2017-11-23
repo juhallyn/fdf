@@ -6,7 +6,7 @@
 #    By: juhallyn <juhallyn@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/07/03 18:24:18 by juhallyn          #+#    #+#              #
-#    Updated: 2017/11/20 18:37:56 by juhallyn         ###   ########.fr        #
+#    Updated: 2017/11/23 20:01:43 by juhallyn         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,7 @@ SRC 	=	\
 			init.c			\
 			list.c			\
 			main.c			\
+			matrice.c		\
 			open_file.c		\
 			parse.c			\
 			tools.c			\
@@ -42,7 +43,7 @@ OBJS_LIST	=	$(addprefix $(OBJS_DIR), $(OBJS))
 
 #_Compilation_#
 
-FLAG 		=	-Wall -Wextra #-Werror
+FLAG 		=	-Wall -Wextra -g3 -fsanitize=address#-Werror
 MLX_FLAG	=	-lmlx -framework OpenGl -framework AppKit
 
 all: $(NAME)
