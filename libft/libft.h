@@ -6,7 +6,7 @@
 /*   By: juhallyn <juhallyn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/08 13:03:27 by juhallyn          #+#    #+#             */
-/*   Updated: 2017/08/28 13:17:53 by juhallyn         ###   ########.fr       */
+/*   Updated: 2017/09/14 17:12:41 by juhallyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,8 @@ char	**ft_strsplit(char const *s, char c);
 char	*ft_strtrim(char const *s);
 char	*ft_itoa(int n);
 char	*ft_strncpy(char *dst, const char *src, size_t len);
+void	ft_arraydel(char ***array);
+size_t	ft_arraylen(char **argv);
 int		get_next_line(int const fd, char **line);
 
 #endif

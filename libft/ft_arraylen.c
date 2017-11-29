@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_arraylen.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juhallyn <juhallyn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/08 17:05:02 by juhallyn          #+#    #+#             */
-/*   Updated: 2017/09/15 14:52:34 by juhallyn         ###   ########.fr       */
+/*   Created: 2017/09/14 17:09:04 by juhallyn          #+#    #+#             */
+/*   Updated: 2017/09/20 16:47:07 by juhallyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./libft.h"
 
-size_t		ft_strlen(const char *str)
+size_t			ft_arraylen(char **argv)
 {
-	size_t i;
+	size_t	index;
 
-	if (!str)
+	index = 0;
+	if (!argv)
 		return (0);
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
+	while (argv[index])
+		index++;
+	return (index);
 }

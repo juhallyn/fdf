@@ -6,7 +6,7 @@
 #    By: juhallyn <juhallyn@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/07/03 18:24:18 by juhallyn          #+#    #+#              #
-#    Updated: 2017/11/23 20:01:43 by juhallyn         ###   ########.fr        #
+#    Updated: 2017/11/29 17:28:11 by juhallyn         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,11 +21,10 @@ PURPLE	=	echo "\x1b[35m $1 \x1b[0m $2"
 NAME	=	fdf
 
 SRC 	=	\
+			check_file.c	\
 			draw.c			\
 			init.c			\
-			list.c			\
 			main.c			\
-			matrice.c		\
 			open_file.c		\
 			parse.c			\
 			tools.c			\
@@ -43,7 +42,7 @@ OBJS_LIST	=	$(addprefix $(OBJS_DIR), $(OBJS))
 
 #_Compilation_#
 
-FLAG 		=	-Wall -Wextra -g3 -fsanitize=address#-Werror
+FLAG 		=	-Wall -Wextra -g3 #-fsanitize=address#-Werror
 MLX_FLAG	=	-lmlx -framework OpenGl -framework AppKit
 
 all: $(NAME)
@@ -60,7 +59,8 @@ $(NAME):
 	@mkdir -p $(OBJS_DIR)
 	@mv $(OBJS) $(OBJS_DIR)
 	@echo "\x1B[32m [ Created objs\x1B[32m ]\x1B[0m "
-	@gcc $(FLAG) $(MLX_FLAG) $(OBJS_LIST) -I $(INC) -I $(LIB) $(LIB)libft.a -o $(NAME)
+	@gcc $(FLAG) $(MLX_FLAG) $(OBJS_LIST) -I $(INC) -I $(LIB) $(LIB)libft.a -o\
+	$(NAME)
 	@echo "\x1B[32m [ Created $@ executable √\x1B[32m ]\x1B[0m "
 
 clean:

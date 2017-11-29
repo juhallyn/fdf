@@ -6,7 +6,7 @@
 /*   By: juhallyn <juhallyn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/15 18:41:02 by juhallyn          #+#    #+#             */
-/*   Updated: 2017/11/23 19:54:52 by juhallyn         ###   ########.fr       */
+/*   Updated: 2017/11/29 18:43:49 by juhallyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,21 +25,38 @@ void		*init_window(void **mlx_server, int width, int height)
 	return (window);
 }
 
-t_std		*init_std(t_map *map, int x, int y)
+t_coord		**init_coord(char *file, t_std *std)
+{
+	t_coord		**coord;
+	int			fd;
+	int			y;
+	char		*line;
+
+	y = 0;
+	line = NULL;
+	fd = open_file(file);
+	coord = malloc_coord(std->x_max, std->y_max);
+	while (get_next_line(fd, &line) > 0)
+	{
+		coord = parse_line(line, coord, std);
+		y++;
+	}
+}
+
+t_std		*init_std(int x_max, int y_max)
 {
 	t_std	*std;
 	void	*mlx;
 	void	*win;
 
-	mlx = NULL;
-	win = NULL;
 	std = NULL;
+	win = NULL;
 	std = (t_std*)malloc(sizeof(t_std));
 	if (!std)
-		ft_exit("Can't allocate std struct in init_std");
-	// win = init_window(&mlx, WIDTH, HEIGHT);
+		ft_exit("can't allocate std in init_std");
+	std->win = init_window(&mlx, WIDTH, HEIGHT);
 	std->mlx = mlx;
-	std->win = win;
-	std->tab = malloc_matrice(map, x, y);
+	std->x_max = x_max;
+	std->y_max = y_max;
 	return (std);
 }

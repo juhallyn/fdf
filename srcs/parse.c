@@ -6,50 +6,58 @@
 /*   By: juhallyn <juhallyn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/15 19:18:06 by juhallyn          #+#    #+#             */
-/*   Updated: 2017/11/23 18:01:54 by juhallyn         ###   ########.fr       */
+/*   Updated: 2017/11/29 19:00:28 by juhallyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-static int			parse_line(t_map **map, char *line, int y)
+t_coord				**malloc_coord(int x_max, int y_max)
+{
+	t_coord		**coord;
+	int			i;
+
+	i = 0;
+	coord = (t_coord**)malloc(sizeof(t_coord*) * (y_max + 1));
+	if (!coord)
+		ft_exit("can't allocate coord (for y) in parse_file");
+	while (coord[i])
+	{
+		coord[i] = (t_coord*)malloc(sizeof(t_coord*) * (x_max + 1));
+		if (!coord[i])
+			ft_exit("can't allocate coord (for x) in parse_file");
+		i++;
+	}
+	return (coord);
+}
+
+t_coord				**parse_line(char *line, t_coord **coord, t_std *std)
 {
 	char	**split;
+	int		x;
 	int		z;
-	size_t	x;
 
 	x = 0;
-	z = 0;
 	split = ft_strsplit(line, ' ');
 	while (split[x])
 	{
-		z = ft_atoi(split[x]);
-		add_end(map, z, x, y);
+		line_coord[y][x].z = ft_atoi(split[x]);
+		// line_coord[y][x].x_win = (INIT_X + (SUB_WIDTH / x_max) * x);
+		// line_coord[y][x].y_win = INIT_Y + (SUB_HEIGHT / y_max) * node->y - \
+	// 	(SUB_HEIGHT / Y_MAX) * node->z);
 		x++;
 	}
-	return (x);
+	ft_arraydel(&split);
+	return (NULL);
 }
 
-t_map			*parse_file(char *file, int *x, int *y)
+t_coord				**parse_file(char *file, t_std *std)
 {
-	t_map	*map;
-	int		fd;
-	char	*line;
+	t_coord		**coord;
+	char		*line;
+	int			i;
 
-	map = NULL;
-	*y = 0;
-	fd = open_file(file);
-	if (get_next_line(fd, &line) > 0)
-	{
-		*x = parse_line(&map, line, *y);
-		*y = *y + 1;
-	}
-	while (get_next_line(fd, &line) > 0)
-	{
-		if (*x != parse_line(&map, line, *y))
-			ft_exit("map error : invalide number of x element");
-		*y = *y + 1;
-	}
-	close(fd);
-	return (map);
+	i = 0;
+	coord = init_coord(file, std);
+	return (coord);
 }

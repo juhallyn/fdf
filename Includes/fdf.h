@@ -6,24 +6,22 @@
 /*   By: juhallyn <juhallyn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/15 12:02:04 by juhallyn          #+#    #+#             */
-/*   Updated: 2017/11/23 19:56:40 by juhallyn         ###   ########.fr       */
+/*   Updated: 2017/11/29 18:51:17 by juhallyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FDF_H
 # define FDF_H
 
-// # include "./logger/incs/logger_utils.h" //DEBUG
-// # include "./logger/incs/logger.h"		//DEBUG
-
 # include <mlx.h>
 # include <math.h>
 # include <stdlib.h>
 # include <stdbool.h>
+# include <stdio.h>
 # include "libft.h"
 
-# define WIDTH 1920
-# define HEIGHT 1080
+# define WIDTH 900
+# define HEIGHT 900
 
 # define SUB_HEIGHT 1720
 # define SUB_WIDTH 980
@@ -35,23 +33,22 @@
 **	--	struct --
 */
 
-
 typedef struct		s_std
 {
 	void			*mlx;
 	void			*win;
-	int				**tab;
+	int				x_max;
+	int				y_max;
 }					t_std;
 
-typedef struct		s_map
+typedef struct		s_coord
 {
-	int				x;
-	int				y;
+	// int				x;
+	// int				y;
+	int				x_win;
+	int				y_win;
 	int				z;
-	// int				x_win;
-	// int				y_win;
-	struct s_map	*next;
-}					t_map;
+}					t_coord;
 
 /*
 **	--	open_file.c --
@@ -63,32 +60,23 @@ int				open_file(char *file);
 **	--	parse_file.c --
 */
 
-t_map			*parse_file(char *file, int *x, int *y);
+t_coord			**malloc_coord(int x_max, int y_max);
+t_coord			**parse_line(char *line, t_coord **coord, t_std *std);
+t_coord			**parse_file(char *file, t_std *std);
 
 /*
 **	--	init.c --
 */
 
 void			*init_window(void **mlx_server, int width, int height);
-t_std			*init_std(t_map *map, int x, int y);
+t_coord			**init_coord(char *file, t_std *std);
+t_std			*init_std(int x_max, int y_max);
 
 /*
-**	--	matrice.c --
+**	--	check_file.c --
 */
 
-int				**malloc_matrice(t_map *map, int x, int y);
-
-/*
-**	--	draw.c --
-*/
-
-int				bresenham_test(void *mlx, void *win);
-
-/*
-**	--	list.c --
-*/
-
-void			add_end(t_map **map, int z, int x, int y);
+void			check_file(char *file, int *x_max, int *y_max);
 
 /*
 **	--	tools.c --

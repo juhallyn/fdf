@@ -6,7 +6,7 @@
 ;    By: juhallyn <juhallyn@student.42.fr>          +#+  +:+       +#+         ;
 ;                                                 +#+#+#+#+#+   +#+            ;
 ;    Created: 2017/11/16 15:30:24 by juhallyn          #+#    #+#              ;
-;    Updated: 2017/11/20 19:25:31 by juhallyn         ###   ########.fr        ;
+;    Updated: 2017/11/29 17:35:42 by juhallyn         ###   ########.fr        ;
 ;                                                                              ;
 ; **************************************************************************** ;
 
@@ -50,11 +50,19 @@ x >			0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
 	 	1,0x810202 1,0x810202 1,0x810202 1,0x810202
 
 
+		struct 				tab
+		{
+			int				x;
+			int				y;
+			int				z;			// altitude
+			int				x_win;		// position pixel (x) in win
+			int				y_win;		// position pixel (y) in win
+		}
 
-
-
-
-
+		struct_tab[0][0]
+		{
+		
+		}
 
 
 --
