@@ -6,7 +6,7 @@
 /*   By: juhallyn <juhallyn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/15 12:02:04 by juhallyn          #+#    #+#             */
-/*   Updated: 2017/11/29 18:51:17 by juhallyn         ###   ########.fr       */
+/*   Updated: 2017/12/01 17:10:27 by juhallyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,8 @@ typedef struct		s_std
 
 typedef struct		s_coord
 {
-	// int				x;
-	// int				y;
-	int				x_win;
-	int				y_win;
+	int				x;
+	int				y;
 	int				z;
 }					t_coord;
 
@@ -61,7 +59,7 @@ int				open_file(char *file);
 */
 
 t_coord			**malloc_coord(int x_max, int y_max);
-t_coord			**parse_line(char *line, t_coord **coord, t_std *std);
+t_coord			**parse_line(char *line, int y, t_coord **coord, t_std *std);
 t_coord			**parse_file(char *file, t_std *std);
 
 /*

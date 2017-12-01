@@ -6,7 +6,7 @@
 #    By: juhallyn <juhallyn@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/07/03 18:24:18 by juhallyn          #+#    #+#              #
-#    Updated: 2017/11/29 17:28:11 by juhallyn         ###   ########.fr        #
+#    Updated: 2017/12/01 17:22:27 by juhallyn         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,7 +46,6 @@ FLAG 		=	-Wall -Wextra -g3 #-fsanitize=address#-Werror
 MLX_FLAG	=	-lmlx -framework OpenGl -framework AppKit
 
 all: $(NAME)
-
 norm:
 	@clear
 	@norminette $(SRCS_LIST) $(INC)

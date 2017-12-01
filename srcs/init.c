@@ -6,7 +6,7 @@
 /*   By: juhallyn <juhallyn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/15 18:41:02 by juhallyn          #+#    #+#             */
-/*   Updated: 2017/11/29 18:43:49 by juhallyn         ###   ########.fr       */
+/*   Updated: 2017/12/01 17:25:21 by juhallyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,11 @@ t_coord		**init_coord(char *file, t_std *std)
 	coord = malloc_coord(std->x_max, std->y_max);
 	while (get_next_line(fd, &line) > 0)
 	{
-		coord = parse_line(line, coord, std);
+		coord = parse_line(line, y, coord, std);
+		ft_strdel(&line);
 		y++;
 	}
+	return (coord);
 }
 
 t_std		*init_std(int x_max, int y_max)
