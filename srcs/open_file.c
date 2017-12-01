@@ -6,7 +6,7 @@
 /*   By: juhallyn <juhallyn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/16 16:12:42 by juhallyn          #+#    #+#             */
-/*   Updated: 2017/11/29 19:00:07 by juhallyn         ###   ########.fr       */
+/*   Updated: 2017/12/01 17:28:13 by juhallyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,6 @@ int				open_file(char *file)
 	check_extension(file);
 	fd = open(file, O_RDONLY);
 	if (fd < 0)
-		ft_exit("Error during open file (Check access or if file exist)");
+		ft_exit("Error during opening file (Check access or if file exist)");
 	return (fd);
 }

@@ -6,7 +6,7 @@
 /*   By: juhallyn <juhallyn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/29 17:15:12 by juhallyn          #+#    #+#             */
-/*   Updated: 2017/12/01 17:20:25 by juhallyn         ###   ########.fr       */
+/*   Updated: 2017/12/01 18:52:24 by juhallyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,12 @@ static int			count_coord_by_line(char *line)
 		j = 0;
 		while (split[nb_coord][j])
 		{
-			if (ft_isdigit(split[nb_coord][j]) != 1)
-				ft_exit("map_error : invalid character(s) in file");
+			// if (ft_isdigit(split[nb_coord][j]) != 1 && \
+			// split[nb_coord][j] != '-' && split[nb_coord][j] != 'x' && split[nb_coord][j] != ',' && split[nb_coord][j] != 'a')
+			// {
+			// 	printf("invalid char is %c", split[nb_coord][j]);
+			// 	ft_exit("map_error : invalid character(s) in file");
+			// }
 			j++;
 		}
 		++nb_coord;

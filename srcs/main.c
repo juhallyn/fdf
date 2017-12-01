@@ -6,12 +6,18 @@
 /*   By: juhallyn <juhallyn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/03 04:32:29 by juhallyn          #+#    #+#             */
-/*   Updated: 2017/12/01 17:24:50 by juhallyn         ###   ########.fr       */
+/*   Updated: 2017/12/01 19:08:34 by juhallyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
+int				exit_win(int keycode)
+{
+	if (keycode == 53)
+		exit(1);
+	return (0);
+}
 void			print_coord(t_coord **coord, t_std *std)
 {
 	int		i;
@@ -44,10 +50,10 @@ int				main(int argc, char **argv)
 	check_file(argv[1], &x_max, &y_max);
 	std = init_std(x_max, y_max);
 	coord = parse_file(argv[1], std);
-	print_coord(coord, std);
-	while (1)
-	{}
-	// init_std(map, x, y);
+	mlx_key_hook(std->win, &exit_win, NULL);
+	draw_matrice(coord, std);
+	draw_line(coord, std);
+	// print_coord(coord, std);
 	// line(std->mlx, std->win, 20, 20, 70, 800);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: juhallyn <juhallyn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/15 12:02:04 by juhallyn          #+#    #+#             */
-/*   Updated: 2017/12/01 17:10:27 by juhallyn         ###   ########.fr       */
+/*   Updated: 2017/12/01 19:58:52 by juhallyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,14 @@
 # include <stdio.h>
 # include "libft.h"
 
-# define WIDTH 900
-# define HEIGHT 900
+# define WIDTH 1620
+# define HEIGHT 1080
 
-# define SUB_HEIGHT 1720
-# define SUB_WIDTH 980
+# define SUB_HEIGHT 220
+# define SUB_WIDTH 780
 
-# define INIT_X 100
-# define INIT_Y 50
+# define INIT_X 180
+# define INIT_Y 480
 
 /*
 **	--	struct --
@@ -82,5 +82,13 @@ void			check_file(char *file, int *x_max, int *y_max);
 
 void			print_usage(void);
 void			ft_exit(char *error);
+
+/*
+**	--	draw.c --
+*/
+
+void 			line(void *mlx, void *win, int x0, int y0, int x1, int y1);
+void			draw_matrice(t_coord **coord, t_std *std);
+void			draw_line(t_coord **coord, t_std *std);
 
 #endif
