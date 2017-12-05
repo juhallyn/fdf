@@ -6,7 +6,7 @@
 /*   By: juhallyn <juhallyn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/15 19:18:06 by juhallyn          #+#    #+#             */
-/*   Updated: 2017/12/01 17:19:35 by juhallyn         ###   ########.fr       */
+/*   Updated: 2017/12/05 19:43:03 by juhallyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,9 @@ t_coord				**parse_line(char *line, int y, t_coord **coord, t_std *std)
 	while (split[x])
 	{
 		coord[y][x].z = ft_atoi(split[x]);
-		coord[y][x].x = (INIT_X + (SUB_WIDTH / std->x_max) * x);
-		coord[y][x].y = (INIT_Y + (SUB_HEIGHT / std->y_max) * y - \
-		(SUB_HEIGHT / std->y_max) * coord[y][x].z);
+		coord[y][x].x = (INIT_X + (SUB_WIDTH / std->x_max) * sqrt(2) / 2 * (x - y));
+		coord[y][x].y = (INIT_Y + (SUB_HEIGHT / std->y_max) * \
+		(-(sqrt(2.0/3) * coord[y][x].z - (1/sqrt(6)) * (x + y))));
 		x++;
 	}
 	ft_arraydel(&split);

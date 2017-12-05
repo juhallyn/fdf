@@ -6,7 +6,7 @@
 /*   By: juhallyn <juhallyn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/15 18:56:55 by juhallyn          #+#    #+#             */
-/*   Updated: 2017/12/01 21:23:27 by juhallyn         ###   ########.fr       */
+/*   Updated: 2017/12/05 18:40:27 by juhallyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,27 @@ void	draw_matrice(t_coord **coord, t_std *std)
 	}
 }
 
-void	draw_line(t_coord **coord, t_std *std)
+void				draw_line_x(t_coord **coord, t_std *std)
+{
+	int		x;
+	int		y;
+
+	x = 0;
+	y = 0;
+	while (y < std->y_max)
+	{
+		x = 0;
+		while (x + 1 < std->x_max)
+		{
+			x++;
+			line(std->mlx, std->win, coord[y][x].x, coord[y][x].y, \
+				coord[y][x - 1].x, coord[y][x - 1].y);
+		}
+		y++;
+	}
+}
+
+void				draw_line_y(t_coord **coord, t_std *std)
 {
 	int		x;
 	int		y;
@@ -42,16 +62,19 @@ void	draw_line(t_coord **coord, t_std *std)
 	while (y + 1 < std->y_max)
 	{
 		x = 0;
-		// draw_last_line()
-		while (x + 1 < std->x_max && y != std->y_max)
+		while (x + 1 < std->x_max)
 		{
-			line(std->mlx, std->win, coord[y][x].x, coord[y][x].y, \
-				coord[y][x + 1].x, coord[y][x + 1].y);
 			line(std->mlx, std->win, coord[y][x].x, coord[y][x].y, \
 				coord[y + 1][x].x, coord[y + 1][x].y);
 			x++;
 		}
 		y++;
+		if (y + 1 <= std->y_max && x + 1 <= std->x_max)
+		{
+				line(std->mlx, std->win, coord[y][x].x, coord[y][x].y, \
+					coord[y - 1][x].x, coord[y - 1][x].y);
+		}
+
 	}
 	mlx_loop(std->mlx);
 }

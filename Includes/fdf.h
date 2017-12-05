@@ -6,7 +6,7 @@
 /*   By: juhallyn <juhallyn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/15 12:02:04 by juhallyn          #+#    #+#             */
-/*   Updated: 2017/12/01 19:58:52 by juhallyn         ###   ########.fr       */
+/*   Updated: 2017/12/05 19:44:53 by juhallyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,10 @@
 # define WIDTH 1620
 # define HEIGHT 1080
 
-# define SUB_HEIGHT 220
-# define SUB_WIDTH 780
+# define SUB_HEIGHT 260
+# define SUB_WIDTH 1080
 
-# define INIT_X 180
+# define INIT_X 600
 # define INIT_Y 480
 
 /*
@@ -89,6 +89,7 @@ void			ft_exit(char *error);
 
 void 			line(void *mlx, void *win, int x0, int y0, int x1, int y1);
 void			draw_matrice(t_coord **coord, t_std *std);
-void			draw_line(t_coord **coord, t_std *std);
+void			draw_line_x(t_coord **coord, t_std *std);
+void			draw_line_y(t_coord **coord, t_std *std);
 
 #endif
