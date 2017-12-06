@@ -6,7 +6,7 @@
 #    By: juhallyn <juhallyn@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/07/03 18:24:18 by juhallyn          #+#    #+#              #
-#    Updated: 2017/12/01 17:22:27 by juhallyn         ###   ########.fr        #
+#    Updated: 2017/12/06 14:17:53 by juhallyn         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,6 +28,7 @@ SRC 	=	\
 			open_file.c		\
 			parse.c			\
 			tools.c			\
+			bresenham.c		\
 
 
 OBJS		=	$(SRC:.c=.o)

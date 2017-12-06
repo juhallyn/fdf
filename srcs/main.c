@@ -6,7 +6,7 @@
 /*   By: juhallyn <juhallyn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/03 04:32:29 by juhallyn          #+#    #+#             */
-/*   Updated: 2017/12/05 18:36:42 by juhallyn         ###   ########.fr       */
+/*   Updated: 2017/12/06 16:34:44 by juhallyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,10 +51,8 @@ int				main(int argc, char **argv)
 	std = init_std(x_max, y_max);
 	coord = parse_file(argv[1], std);
 	mlx_key_hook(std->win, &exit_win, NULL);
-	draw_matrice(coord, std);
 	draw_line_x(coord, std);
 	draw_line_y(coord, std);
-	// print_coord(coord, std);
-	// line(std->mlx, std->win, 20, 20, 70, 800);
+	mlx_loop(std->mlx);
 	return (0);
 }

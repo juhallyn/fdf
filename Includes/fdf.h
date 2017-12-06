@@ -6,7 +6,7 @@
 /*   By: juhallyn <juhallyn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/15 12:02:04 by juhallyn          #+#    #+#             */
-/*   Updated: 2017/12/05 19:44:53 by juhallyn         ###   ########.fr       */
+/*   Updated: 2017/12/06 18:14:13 by juhallyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,20 @@
 # define WIDTH 1620
 # define HEIGHT 1080
 
-# define SUB_HEIGHT 260
+# define SUB_HEIGHT 560
 # define SUB_WIDTH 1080
 
-# define INIT_X 600
-# define INIT_Y 480
+# define INIT_X 750
+# define INIT_Y 490
+
+/*
+**	--	color  --
+*/
+
+# define RED 0x78201E
+# define BLUE 0x00FFFF
+# define GREEN 0x2DB92D
+
 
 /*
 **	--	struct --
@@ -47,6 +56,37 @@ typedef struct		s_coord
 	int				y;
 	int				z;
 }					t_coord;
+
+/*
+**	--	vars for bresenham algoritm --
+**				|
+**				V
+*/
+
+typedef struct		s_bresenham
+{
+	int				dx;
+	int				sx;
+	int				dy;
+	int				sy;
+	int				err;
+	int				e2;
+}					t_bresenham;
+
+/*
+**	--	index_coord of segment  --
+**
+**		this struct will be contain
+**		the real value in line()
+*/
+
+typedef struct		s_segment_index
+{
+	int				x0;
+	int				y0;
+	int				x1;
+	int				y1;
+}					t_segment_index;
 
 /*
 **	--	open_file.c --
@@ -69,6 +109,7 @@ t_coord			**parse_file(char *file, t_std *std);
 void			*init_window(void **mlx_server, int width, int height);
 t_coord			**init_coord(char *file, t_std *std);
 t_std			*init_std(int x_max, int y_max);
+t_bresenham		*init_bresenham(int x0, int y0, int x1, int y1);
 
 /*
 **	--	check_file.c --
@@ -80,16 +121,22 @@ void			check_file(char *file, int *x_max, int *y_max);
 **	--	tools.c --
 */
 
-void			print_usage(void);
-void			ft_exit(char *error);
+void				print_usage(void);
+void				ft_exit(char *error);
+int					color_mode(int z);
+t_segment_index		*malloc_struct_segment(void);
 
 /*
 **	--	draw.c --
 */
 
-void 			line(void *mlx, void *win, int x0, int y0, int x1, int y1);
-void			draw_matrice(t_coord **coord, t_std *std);
 void			draw_line_x(t_coord **coord, t_std *std);
 void			draw_line_y(t_coord **coord, t_std *std);
+
+/*
+**	--	bresenham.c --
+*/
+
+void 			line(t_std *std, t_coord **coord, t_segment_index *seg, int color);
 
 #endif

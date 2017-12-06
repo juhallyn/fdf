@@ -6,13 +6,13 @@
 /*   By: juhallyn <juhallyn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/15 18:41:02 by juhallyn          #+#    #+#             */
-/*   Updated: 2017/12/01 17:25:21 by juhallyn         ###   ########.fr       */
+/*   Updated: 2017/12/06 16:28:02 by juhallyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void		*init_window(void **mlx_server, int width, int height)
+void			*init_window(void **mlx_server, int width, int height)
 {
 	void	*window;
 
@@ -25,7 +25,7 @@ void		*init_window(void **mlx_server, int width, int height)
 	return (window);
 }
 
-t_coord		**init_coord(char *file, t_std *std)
+t_coord			**init_coord(char *file, t_std *std)
 {
 	t_coord		**coord;
 	int			fd;
@@ -45,7 +45,7 @@ t_coord		**init_coord(char *file, t_std *std)
 	return (coord);
 }
 
-t_std		*init_std(int x_max, int y_max)
+t_std			*init_std(int x_max, int y_max)
 {
 	t_std	*std;
 	void	*mlx;
@@ -61,4 +61,21 @@ t_std		*init_std(int x_max, int y_max)
 	std->x_max = x_max;
 	std->y_max = y_max;
 	return (std);
+}
+
+t_bresenham		*init_bresenham(int x0, int y0, int x1, int y1)
+{
+	t_bresenham		*vars;
+
+	vars = NULL;
+	vars = (t_bresenham*)malloc(sizeof(t_bresenham));
+	if (!vars)
+		ft_exit("can't allocate vars (for bresenham) in bresenham.c");
+	vars->dx = abs(x1 - x0);
+	vars->sx = x0 < x1 ? 1 : - 1;
+	vars->dy = abs(y1 - y0);
+	vars->sy = y0 < y1 ? 1 : - 1;
+	vars->err = (vars->dx > vars->dy ? vars->dx : - vars->dy) / 2;
+	vars->e2 = 0;
+	return (vars);
 }

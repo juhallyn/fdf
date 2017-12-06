@@ -6,7 +6,7 @@
 /*   By: juhallyn <juhallyn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/15 18:56:55 by juhallyn          #+#    #+#             */
-/*   Updated: 2017/12/05 18:40:27 by juhallyn         ###   ########.fr       */
+/*   Updated: 2017/12/06 18:14:41 by juhallyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@ void	draw_matrice(t_coord **coord, t_std *std)
 	int		y;
 
 	y = 0;
-	// line(std->mlx, std->win, coord[0][0].x, coord[0][0].y,\
-	// 	coord[0][1].x, coord[0][1].y);
 	while (y < std->y_max)
 	{
 		x = 0;
@@ -34,63 +32,53 @@ void	draw_matrice(t_coord **coord, t_std *std)
 
 void				draw_line_x(t_coord **coord, t_std *std)
 {
-	int		x;
-	int		y;
+	t_segment_index *seg;
 
-	x = 0;
-	y = 0;
-	while (y < std->y_max)
+	seg = (t_segment_index*)malloc(sizeof(seg));
+	if (!seg)
+		ft_exit("can't allocate seg in draw_line_y");
+
+	seg->x0 = 0;
+	seg->y0 = 0;
+	while (seg->y0 < std->y_max)
 	{
-		x = 0;
-		while (x + 1 < std->x_max)
+		seg->x0 = 0;
+		while (seg->x0 + 1 < std->x_max)
 		{
-			x++;
-			line(std->mlx, std->win, coord[y][x].x, coord[y][x].y, \
-				coord[y][x - 1].x, coord[y][x - 1].y);
+			seg->x0++;
+			seg->y1 = seg->y0;
+			seg->x1 = (seg->x0 - 1);
+			line(std, coord, seg, color_mode(coord[seg->y1][seg->x1].z));
 		}
-		y++;
+		seg->y0++;
 	}
+	free(seg);
 }
 
 void				draw_line_y(t_coord **coord, t_std *std)
 {
-	int		x;
-	int		y;
+	t_segment_index *seg;
 
-	x = 0;
-	y = 0;
-	while (y + 1 < std->y_max)
+	seg = malloc_struct_segment();
+	seg->x0 = 0;
+	seg->y0 = 0;
+	while (seg->y0 + 1 < std->y_max)
 	{
-		x = 0;
-		while (x + 1 < std->x_max)
+		seg->x0 = 0;
+		while (seg->x0 + 1 < std->x_max)
 		{
-			line(std->mlx, std->win, coord[y][x].x, coord[y][x].y, \
-				coord[y + 1][x].x, coord[y + 1][x].y);
-			x++;
+			seg->y1 = seg->y0 + 1;
+			seg->x1 = seg->x0;
+			line(std, coord, seg, color_mode(coord[seg->y1][seg->x1].z));
+			seg->x0++;
 		}
-		y++;
-		if (y + 1 <= std->y_max && x + 1 <= std->x_max)
+		seg->y0++;
+		if (seg->y0 + 1 <= std->y_max && seg->x0 + 1 <= std->x_max)
 		{
-				line(std->mlx, std->win, coord[y][x].x, coord[y][x].y, \
-					coord[y - 1][x].x, coord[y - 1][x].y);
+			seg->y1 = seg->y0 - 1;
+			seg->x1 = seg->x0;
+			line(std, coord, seg, color_mode(coord[seg->y1][seg->x1].z));
 		}
-
 	}
-	mlx_loop(std->mlx);
-}
-
-void 	line(void *mlx, void *win, int x0, int y0, int x1, int y1)
-{
-	int dx = abs(x1-x0), sx = x0<x1 ? 1 : -1;
-	int dy = abs(y1-y0), sy = y0<y1 ? 1 : -1;
-	int err = (dx>dy ? dx : -dy)/2, e2;
-
-	while (1)
-	{
-		mlx_pixel_put(mlx, win, x0, y0, 0x00FFFF);
-		if (x0==x1 && y0==y1) break;
-			e2 = err;
-		if (e2 >-dx) { err -= dy; x0 += sx; }
-		if (e2 < dy) { err += dx; y0 += sy; }
-	}
+	free(seg);
 }
