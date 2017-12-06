@@ -6,7 +6,7 @@
 /*   By: juhallyn <juhallyn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/15 18:41:02 by juhallyn          #+#    #+#             */
-/*   Updated: 2017/12/06 16:28:02 by juhallyn         ###   ########.fr       */
+/*   Updated: 2017/12/06 19:36:05 by juhallyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,10 +72,10 @@ t_bresenham		*init_bresenham(int x0, int y0, int x1, int y1)
 	if (!vars)
 		ft_exit("can't allocate vars (for bresenham) in bresenham.c");
 	vars->dx = abs(x1 - x0);
-	vars->sx = x0 < x1 ? 1 : - 1;
+	vars->sx = x0 < x1 ? 1 : -1;
 	vars->dy = abs(y1 - y0);
-	vars->sy = y0 < y1 ? 1 : - 1;
-	vars->err = (vars->dx > vars->dy ? vars->dx : - vars->dy) / 2;
+	vars->sy = y0 < y1 ? 1 : -1;
+	vars->err = (vars->dx > vars->dy ? vars->dx : -vars->dy) / 2;
 	vars->e2 = 0;
 	return (vars);
 }

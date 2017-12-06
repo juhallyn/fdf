@@ -6,7 +6,7 @@
 /*   By: juhallyn <juhallyn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/16 15:26:18 by juhallyn          #+#    #+#             */
-/*   Updated: 2017/12/06 18:41:11 by juhallyn         ###   ########.fr       */
+/*   Updated: 2017/12/06 19:37:11 by juhallyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void				ft_exit(char *error)
 		ft_putendl_fd(error, 2);
 		ft_putstr_fd("\x1b[0m", 2);
 	}
-	exit (-1);
+	exit(-1);
 }
 
 int					color_mode(int z)
@@ -42,7 +42,7 @@ int					color_mode(int z)
 		return (RED);
 }
 
-t_segment_index		*malloc_struct_segment()
+t_segment_index		*malloc_struct_segment(void)
 {
 	t_segment_index *seg;
 

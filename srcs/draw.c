@@ -6,29 +6,11 @@
 /*   By: juhallyn <juhallyn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/15 18:56:55 by juhallyn          #+#    #+#             */
-/*   Updated: 2017/12/06 18:14:41 by juhallyn         ###   ########.fr       */
+/*   Updated: 2017/12/06 19:38:07 by juhallyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
-
-void	draw_matrice(t_coord **coord, t_std *std)
-{
-	int		x;
-	int		y;
-
-	y = 0;
-	while (y < std->y_max)
-	{
-		x = 0;
-		while (x < std->x_max)
-		{
-			mlx_pixel_put(std->mlx, std->win, coord[y][x].x, coord[y][x].y, 0x00FFFF);
-			x++;
-		}
-		y++;
-	}
-}
 
 void				draw_line_x(t_coord **coord, t_std *std)
 {
@@ -37,7 +19,6 @@ void				draw_line_x(t_coord **coord, t_std *std)
 	seg = (t_segment_index*)malloc(sizeof(seg));
 	if (!seg)
 		ft_exit("can't allocate seg in draw_line_y");
-
 	seg->x0 = 0;
 	seg->y0 = 0;
 	while (seg->y0 < std->y_max)

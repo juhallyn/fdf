@@ -6,7 +6,7 @@
 /*   By: juhallyn <juhallyn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/29 17:15:12 by juhallyn          #+#    #+#             */
-/*   Updated: 2017/12/01 18:52:24 by juhallyn         ###   ########.fr       */
+/*   Updated: 2017/12/06 19:35:34 by juhallyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,25 +26,12 @@ static int			count_coord_by_line(char *line)
 		ft_exit("map_error: the coord will be separed by space character(s)");
 	}
 	while (split[nb_coord])
-	{
-		j = 0;
-		while (split[nb_coord][j])
-		{
-			// if (ft_isdigit(split[nb_coord][j]) != 1 && \
-			// split[nb_coord][j] != '-' && split[nb_coord][j] != 'x' && split[nb_coord][j] != ',' && split[nb_coord][j] != 'a')
-			// {
-			// 	printf("invalid char is %c", split[nb_coord][j]);
-			// 	ft_exit("map_error : invalid character(s) in file");
-			// }
-			j++;
-		}
 		++nb_coord;
-	}
 	ft_arraydel(&split);
 	return (nb_coord);
 }
 
-void			check_file(char *file, int *x_max, int *y_max)
+void				check_file(char *file, int *x_max, int *y_max)
 {
 	int		fd;
 	char	*line;

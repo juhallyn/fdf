@@ -6,7 +6,7 @@
 /*   By: juhallyn <juhallyn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/03 04:32:29 by juhallyn          #+#    #+#             */
-/*   Updated: 2017/12/06 16:34:44 by juhallyn         ###   ########.fr       */
+/*   Updated: 2017/12/06 19:38:35 by juhallyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int				exit_win(int keycode)
 		exit(1);
 	return (0);
 }
+
 void			print_coord(t_coord **coord, t_std *std)
 {
 	int		i;

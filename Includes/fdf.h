@@ -6,7 +6,7 @@
 /*   By: juhallyn <juhallyn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/15 12:02:04 by juhallyn          #+#    #+#             */
-/*   Updated: 2017/12/06 18:14:13 by juhallyn         ###   ########.fr       */
+/*   Updated: 2017/12/06 19:50:09 by juhallyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@
 # define WIDTH 1620
 # define HEIGHT 1080
 
-# define SUB_HEIGHT 560
+//# define SUB_HEIGHT 560
+# define SUB_HEIGHT 500
 # define SUB_WIDTH 1080
 
 # define INIT_X 750

@@ -6,7 +6,7 @@
 /*   By: juhallyn <juhallyn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/06 14:16:01 by juhallyn          #+#    #+#             */
-/*   Updated: 2017/12/06 18:12:36 by juhallyn         ###   ########.fr       */
+/*   Updated: 2017/12/06 18:42:28 by juhallyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,4 @@ void					line(t_std *std, t_coord **coord, t_segment_index *seg,\
 	init_dest_point(&x1, &y1, coord, seg);
 	vars = init_bresenham(x0, y0, x1, y1);
 	draw_segment(vars, to_real_value(x0, y0, x1, y1), std, color);
-	 //\
-	color_mode(coord[seg->x0][seg->y0].z));
 }
