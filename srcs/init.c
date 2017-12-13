@@ -6,7 +6,7 @@
 /*   By: juhallyn <juhallyn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/15 18:41:02 by juhallyn          #+#    #+#             */
-/*   Updated: 2017/12/06 19:36:05 by juhallyn         ###   ########.fr       */
+/*   Updated: 2017/12/13 19:32:54 by juhallyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ t_std			*init_std(int x_max, int y_max)
 	std->mlx = mlx;
 	std->x_max = x_max;
 	std->y_max = y_max;
+	return_std(std, true);
 	return (std);
 }
 

@@ -6,7 +6,7 @@
 /*   By: juhallyn <juhallyn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/06 14:16:01 by juhallyn          #+#    #+#             */
-/*   Updated: 2017/12/06 18:42:28 by juhallyn         ###   ########.fr       */
+/*   Updated: 2017/12/13 16:00:53 by juhallyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static t_segment_index	*to_real_value(int x0, int y0, int x1, int y1)
 {
 	t_segment_index		*seg_draw;
 
-	seg_draw = (t_segment_index*)malloc(sizeof(seg_draw));
+	seg_draw = (t_segment_index*)malloc(sizeof(seg_draw) * 2);
 	if (!seg_draw)
 		ft_exit("can't allocate seg_draw in to_real_value");
 	seg_draw->x0 = x0;

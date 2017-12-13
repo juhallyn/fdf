@@ -6,35 +6,32 @@
 /*   By: juhallyn <juhallyn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/03 04:32:29 by juhallyn          #+#    #+#             */
-/*   Updated: 2017/12/06 19:38:35 by juhallyn         ###   ########.fr       */
+/*   Updated: 2017/12/13 21:06:22 by juhallyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-int				exit_win(int keycode)
+int				key_action(int keycode, t_coord **coord)
 {
-	if (keycode == 53)
+	t_std		*std;
+
+	std = return_std(NULL, false);
+	if (keycode == ESC)
 		exit(1);
-	return (0);
-}
-
-void			print_coord(t_coord **coord, t_std *std)
-{
-	int		i;
-	int		j;
-
-	i = 0;
-	while (i < std->y_max)
+	if (keycode == PAGE_UP)
 	{
-		j = 0;
-		while (j < std->x_max)
-		{
-			printf("y = %d, x = %d : [%d]\n", i, j, coord[i][j].z);
-			j++;
-		}
-		i++;
+		coord = up_coord_height(coord, std);
+		refresh(coord, std);
 	}
+	if (keycode == PAGE_DOWN)
+	{
+		coord = down_coord_height(coord, std);
+		refresh(coord, std);
+	}
+	else
+		printf("key : %d\n", keycode);
+	return (0);
 }
 
 int				main(int argc, char **argv)
@@ -51,7 +48,7 @@ int				main(int argc, char **argv)
 	check_file(argv[1], &x_max, &y_max);
 	std = init_std(x_max, y_max);
 	coord = parse_file(argv[1], std);
-	mlx_key_hook(std->win, &exit_win, NULL);
+	mlx_key_hook(std->win, &key_action, coord);
 	draw_line_x(coord, std);
 	draw_line_y(coord, std);
 	mlx_loop(std->mlx);

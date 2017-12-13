@@ -6,7 +6,7 @@
 /*   By: juhallyn <juhallyn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/15 12:02:04 by juhallyn          #+#    #+#             */
-/*   Updated: 2017/12/06 19:50:09 by juhallyn         ###   ########.fr       */
+/*   Updated: 2017/12/13 20:58:51 by juhallyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,15 +23,25 @@
 # define WIDTH 1620
 # define HEIGHT 1080
 
-//# define SUB_HEIGHT 560
-# define SUB_HEIGHT 500
-# define SUB_WIDTH 1080
+// # define SUB_HEIGHT 500
+// # define SUB_WIDTH 1080
 
-# define INIT_X 750
-# define INIT_Y 490
+# define SUB_HEIGHT 400
+# define SUB_WIDTH 1070
+
+# define INIT_X 850
+# define INIT_Y 500
 
 /*
-**	--	color  --
+**	--	KEYS  --
+*/
+
+# define PAGE_DOWN 121
+# define PAGE_UP 116
+# define ESC 53
+
+/*
+**	--	colors  --
 */
 
 # define RED 0x78201E
@@ -126,6 +136,7 @@ void				print_usage(void);
 void				ft_exit(char *error);
 int					color_mode(int z);
 t_segment_index		*malloc_struct_segment(void);
+t_std				*return_std(t_std *std, bool flag);
 
 /*
 **	--	draw.c --
@@ -139,5 +150,13 @@ void			draw_line_y(t_coord **coord, t_std *std);
 */
 
 void 			line(t_std *std, t_coord **coord, t_segment_index *seg, int color);
+
+/*
+**	--	move.c --
+*/
+
+t_coord			**up_coord_height(t_coord **coord, t_std *std);
+t_coord			**down_coord_height(t_coord **coord, t_std *std);
+void			refresh(t_coord **coord, t_std *std);
 
 #endif

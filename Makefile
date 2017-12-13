@@ -6,7 +6,7 @@
 #    By: juhallyn <juhallyn@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/07/03 18:24:18 by juhallyn          #+#    #+#              #
-#    Updated: 2017/12/06 14:17:53 by juhallyn         ###   ########.fr        #
+#    Updated: 2017/12/13 19:51:16 by juhallyn         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,6 +29,7 @@ SRC 	=	\
 			parse.c			\
 			tools.c			\
 			bresenham.c		\
+			move.c			\
 
 
 OBJS		=	$(SRC:.c=.o)
@@ -43,7 +44,7 @@ OBJS_LIST	=	$(addprefix $(OBJS_DIR), $(OBJS))
 
 #_Compilation_#
 
-FLAG 		=	-Wall -Wextra -g3 #-fsanitize=address#-Werror
+FLAG 		=	-Wall -Wextra #-Werror #-g3 -fsanitize=address
 MLX_FLAG	=	-lmlx -framework OpenGl -framework AppKit
 
 all: $(NAME)
@@ -54,7 +55,7 @@ norm:
 #_Compilation_#
 
 $(NAME):
-#	@make -C $(LIB)
+	@make -C $(LIB)
 	@gcc $(FLAG) -c $(SRCS_LIST) -I $(INC) -I $(LIB)
 	@mkdir -p $(OBJS_DIR)
 	@mv $(OBJS) $(OBJS_DIR)
@@ -73,4 +74,4 @@ fclean: clean
 	@make fclean -C $(LIB)
 	@rm -f $(NAME)
 
-re: all#fclean all
+re: fclean all

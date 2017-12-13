@@ -6,7 +6,7 @@
 /*   By: juhallyn <juhallyn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/29 17:15:12 by juhallyn          #+#    #+#             */
-/*   Updated: 2017/12/06 19:35:34 by juhallyn         ###   ########.fr       */
+/*   Updated: 2017/12/13 15:53:58 by juhallyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ static int			count_coord_by_line(char *line)
 {
 	char	**split;
 	int		nb_coord;
-	int		j;
 
 	nb_coord = 0;
 	split = ft_strsplit(line, ' ');

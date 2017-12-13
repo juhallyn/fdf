@@ -6,7 +6,7 @@
 /*   By: juhallyn <juhallyn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/15 18:56:55 by juhallyn          #+#    #+#             */
-/*   Updated: 2017/12/06 19:38:07 by juhallyn         ###   ########.fr       */
+/*   Updated: 2017/12/13 15:57:30 by juhallyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,7 @@ void				draw_line_x(t_coord **coord, t_std *std)
 {
 	t_segment_index *seg;
 
-	seg = (t_segment_index*)malloc(sizeof(seg));
-	if (!seg)
-		ft_exit("can't allocate seg in draw_line_y");
+	seg = malloc_struct_segment();
 	seg->x0 = 0;
 	seg->y0 = 0;
 	while (seg->y0 < std->y_max)
