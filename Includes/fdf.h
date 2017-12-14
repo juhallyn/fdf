@@ -6,7 +6,7 @@
 /*   By: juhallyn <juhallyn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/15 12:02:04 by juhallyn          #+#    #+#             */
-/*   Updated: 2017/12/14 15:24:17 by juhallyn         ###   ########.fr       */
+/*   Updated: 2017/12/14 16:47:24 by juhallyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@
 # define ESC 53
 # define UP_ARROW 126
 # define DOWN_ARROW 125
+# define RIGHT_ARROW 124
 
 /*
 **	--	colors  --
@@ -101,6 +102,20 @@ typedef struct		s_segment_index
 	int				y1;
 }					t_segment_index;
 
+/*
+**		--	s_move   --
+**
+**	this struct save static up var, static left_right var and the current
+** 	 position in INIT_X AND INIT_Y when you move the map with arrows keys
+*/
+
+typedef struct		s_move
+{
+	int				init_x;
+	int				init_y;
+	int				up;
+	int				left_right;
+}					t_move;
 
 /*
 **	--	main.c --
@@ -171,7 +186,16 @@ t_coord			**down_coord_height(t_coord **coord, t_std *std);
 **	--	move.c --
 */
 
+t_move			*malloc_move_pos(t_std *std);
 t_coord			**move_up(t_coord **coord, t_std *std, int up);
 t_coord			**move_down(t_coord **coord, t_std *std, int up);
+t_coord			**move_left(t_coord **coord, t_std *std, int up);
+
+/*
+**	--	keys_actions.c --
+*/
+
+int				keys_actions(int keycode, t_coord **coord);
+t_coord			**move_right(t_coord **coord, t_std *std, int up);
 
 #endif
