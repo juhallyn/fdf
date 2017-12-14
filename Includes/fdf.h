@@ -6,7 +6,7 @@
 /*   By: juhallyn <juhallyn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/15 12:02:04 by juhallyn          #+#    #+#             */
-/*   Updated: 2017/12/13 20:58:51 by juhallyn         ###   ########.fr       */
+/*   Updated: 2017/12/14 15:24:17 by juhallyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@
 # define PAGE_DOWN 121
 # define PAGE_UP 116
 # define ESC 53
+# define UP_ARROW 126
+# define DOWN_ARROW 125
 
 /*
 **	--	colors  --
@@ -99,6 +101,13 @@ typedef struct		s_segment_index
 	int				y1;
 }					t_segment_index;
 
+
+/*
+**	--	main.c --
+*/
+
+t_coord			**refresh(t_coord **coord, t_std *std);
+
 /*
 **	--	open_file.c --
 */
@@ -152,11 +161,17 @@ void			draw_line_y(t_coord **coord, t_std *std);
 void 			line(t_std *std, t_coord **coord, t_segment_index *seg, int color);
 
 /*
-**	--	move.c --
+**	--	up_down_coord.c --
 */
 
 t_coord			**up_coord_height(t_coord **coord, t_std *std);
 t_coord			**down_coord_height(t_coord **coord, t_std *std);
-void			refresh(t_coord **coord, t_std *std);
+
+/*
+**	--	move.c --
+*/
+
+t_coord			**move_up(t_coord **coord, t_std *std, int up);
+t_coord			**move_down(t_coord **coord, t_std *std, int up);
 
 #endif

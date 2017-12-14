@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   move.c                                             :+:      :+:    :+:   */
+/*   up_down_coord.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juhallyn <juhallyn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/13 19:38:51 by juhallyn          #+#    #+#             */
-/*   Updated: 2017/12/14 15:24:41 by juhallyn         ###   ########.fr       */
+/*   Created: 2017/12/14 12:48:30 by juhallyn          #+#    #+#             */
+/*   Updated: 2017/12/14 15:10:46 by juhallyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-t_coord		**move_up(t_coord **coord, t_std *std, int up)
+t_coord		**up_coord_height(t_coord **coord, t_std *std)
 {
 	int		y;
 	int		x;
@@ -24,10 +24,8 @@ t_coord		**move_up(t_coord **coord, t_std *std, int up)
 		x = 0;
 		while (x < std->x_max)
 		{
-			coord[y][x].x = ((INIT_X) + (SUB_WIDTH / std->x_max) \
-			* sqrt(2) / 2 * (x - y));
-			coord[y][x].y = ((INIT_Y * 0.2 + up) + (SUB_HEIGHT / std->y_max) * \
-			(-(sqrt(2.0 / 3) * coord[y][x].z - (1 / sqrt(6)) * (x + y))));
+			if (coord[y][x].z != 0 && coord[y][x].z != 9)
+				coord[y][x].y = coord[y][x].y - 10;
 			x++;
 		}
 		y++;
@@ -35,7 +33,7 @@ t_coord		**move_up(t_coord **coord, t_std *std, int up)
 	return (coord);
 }
 
-t_coord		**move_down(t_coord **coord, t_std *std, int up)
+t_coord		**down_coord_height(t_coord **coord, t_std *std)
 {
 	int		y;
 	int		x;
@@ -47,10 +45,8 @@ t_coord		**move_down(t_coord **coord, t_std *std, int up)
 		x = 0;
 		while (x < std->x_max)
 		{
-			coord[y][x].x = ((INIT_X) + (SUB_WIDTH / std->x_max) \
-			* sqrt(2) / 2 * (x - y));
-			coord[y][x].y = ((INIT_Y * 0.5 + up) + (SUB_HEIGHT / std->y_max) * \
-			(-(sqrt(2.0 / 3) * coord[y][x].z - (1 / sqrt(6)) * (x + y))));
+			if (coord[y][x].z != 0 && coord[y][x].z != 9)
+				coord[y][x].y = coord[y][x].y + 10;
 			x++;
 		}
 		y++;

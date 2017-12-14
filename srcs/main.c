@@ -6,7 +6,7 @@
 /*   By: juhallyn <juhallyn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/03 04:32:29 by juhallyn          #+#    #+#             */
-/*   Updated: 2017/12/13 21:06:22 by juhallyn         ###   ########.fr       */
+/*   Updated: 2017/12/14 15:23:57 by juhallyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,23 +15,38 @@
 int				key_action(int keycode, t_coord **coord)
 {
 	t_std		*std;
+	static int	up = 200;
 
 	std = return_std(NULL, false);
 	if (keycode == ESC)
-		exit(1);
+		exit(0);
 	if (keycode == PAGE_UP)
-	{
-		coord = up_coord_height(coord, std);
-		refresh(coord, std);
-	}
+		refresh(up_coord_height(coord, std), std);
 	if (keycode == PAGE_DOWN)
+		refresh(down_coord_height(coord, std), std);
+	if (keycode == UP_ARROW)
 	{
-		coord = down_coord_height(coord, std);
+		move_up(coord, std, up);
 		refresh(coord, std);
+		up = up - 100;
+	}
+	if (keycode == DOWN_ARROW)
+	{
+		coord = move_down(coord, std, up);
+		refresh(coord, std);
+		up = up + 100;
 	}
 	else
 		printf("key : %d\n", keycode);
 	return (0);
+}
+
+t_coord			**refresh(t_coord **coord, t_std *std)
+{
+	mlx_clear_window(std->mlx, std->win);
+	draw_line_x(coord, std);
+	draw_line_y(coord, std);
+	return (coord);
 }
 
 int				main(int argc, char **argv)

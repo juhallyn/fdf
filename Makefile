@@ -6,7 +6,7 @@
 #    By: juhallyn <juhallyn@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/07/03 18:24:18 by juhallyn          #+#    #+#              #
-#    Updated: 2017/12/13 19:51:16 by juhallyn         ###   ########.fr        #
+#    Updated: 2017/12/14 13:30:41 by juhallyn         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,6 +30,7 @@ SRC 	=	\
 			tools.c			\
 			bresenham.c		\
 			move.c			\
+			up_down_coord.c	\
 
 
 OBJS		=	$(SRC:.c=.o)
