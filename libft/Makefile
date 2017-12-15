@@ -6,7 +6,7 @@
 #    By: juhallyn <juhallyn@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/08 15:06:34 by juhallyn          #+#    #+#              #
-#    Updated: 2017/09/14 17:11:18 by juhallyn         ###   ########.fr        #
+#    Updated: 2017/12/15 16:46:52 by juhallyn         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -75,13 +75,17 @@ FLAGS = -Wall -Wextra -Werror
 all : $(NAME)
 
 $(NAME) :
-	gcc $(FLAGS) -c $(SOURCES)
-	ar rc $(NAME) $(OBJS)
+	@gcc $(FLAGS) -c $(SOURCES)
+	@echo "\x1B[32m [ Created Libft objs\x1B[32m ]\x1B[0m "
+	@ar rc $(NAME) $(OBJS)
+	@echo "\x1B[32m [ Created Libft.a \x1B[32m ]\x1B[0m "
 
 clean :
-	rm -f $(OBJS)
+	@rm -f $(OBJS)
+	@echo "\x1B[32m [ deleted Libft objs\x1B[32m ]\x1B[0m "
 
 fclean : clean
-	rm -f $(NAME)
+	@rm -f $(NAME)
+	@echo "\x1B[32m [ deleted Libft.a \x1B[32m ]\x1B[0m "
 
 re : fclean all

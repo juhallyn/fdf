@@ -6,7 +6,7 @@
 #    By: juhallyn <juhallyn@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/07/03 18:24:18 by juhallyn          #+#    #+#              #
-#    Updated: 2017/12/14 15:56:33 by juhallyn         ###   ########.fr        #
+#    Updated: 2017/12/15 16:45:44 by juhallyn         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,6 @@ SRC 	=	\
 			parse.c			\
 			tools.c			\
 			bresenham.c		\
-			move.c			\
 			up_down_coord.c	\
 			keys_actions.c	\
 
@@ -46,7 +45,7 @@ OBJS_LIST	=	$(addprefix $(OBJS_DIR), $(OBJS))
 
 #_Compilation_#
 
-FLAG 		=	-Wall -Wextra #-Werror #-g3 -fsanitize=address
+FLAG 		=	-Wall -Wextra -g3 -fsanitize=address #-Werror
 MLX_FLAG	=	-lmlx -framework OpenGl -framework AppKit
 
 all: $(NAME)

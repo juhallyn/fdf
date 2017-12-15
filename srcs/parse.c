@@ -6,7 +6,7 @@
 /*   By: juhallyn <juhallyn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/15 19:18:06 by juhallyn          #+#    #+#             */
-/*   Updated: 2017/12/14 14:35:50 by juhallyn         ###   ########.fr       */
+/*   Updated: 2017/12/15 16:23:50 by juhallyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ t_coord				**malloc_coord(int x_max, int y_max)
 	int			i;
 
 	i = 0;
-	coord = (t_coord**)malloc(sizeof(t_coord) * (y_max));
+	coord = (t_coord**)malloc(sizeof(t_coord) * (y_max + 1));
 	if (!coord)
 		ft_exit("can't allocate coord (for y) in parse_file");
 	while (i < (y_max + 1))

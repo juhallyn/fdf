@@ -6,18 +6,17 @@
 /*   By: juhallyn <juhallyn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/03 04:32:29 by juhallyn          #+#    #+#             */
-/*   Updated: 2017/12/14 15:56:15 by juhallyn         ###   ########.fr       */
+/*   Updated: 2017/12/15 16:32:41 by juhallyn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-t_coord			**refresh(t_coord **coord, t_std *std)
+void			refresh(t_coord **coord, t_std *std)
 {
 	mlx_clear_window(std->mlx, std->win);
 	draw_line_x(coord, std);
 	draw_line_y(coord, std);
-	return (coord);
 }
 
 int				main(int argc, char **argv)
