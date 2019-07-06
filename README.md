@@ -19,4 +19,5 @@ Le projet a pour but de parser un fichier text avec des coordonnés tel que :
 
 ```
 
-et de l'afficher en vue isométrique.
+et de l'afficher en vue isométrique :
+
