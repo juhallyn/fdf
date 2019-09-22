@@ -1,7 +1,7 @@
 # fdf
 Fil De Fer
 
-Le projet a pour but de parser un fichier text avec des coordonnés tel que :
+Le projet a pour but de parser un fichier texte avec des coordonnés tel que :
 
 
 ```javascript
