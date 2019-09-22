@@ -1,5 +1,4 @@
-# fdf
-Fil De Fer
+# FDF - Fil De Fer
 
 Le projet a pour but de parser un fichier texte avec des coordonnés tel que :
 
