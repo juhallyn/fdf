@@ -21,3 +21,4 @@ Le projet a pour but de parser un fichier text avec des coordonnés tel que :
 
 et de l'afficher en vue isométrique :
 
+![alt text](https://github.com/juhallyn/fdf/blob/master/ressources/42.PNG)
